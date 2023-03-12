@@ -1,0 +1,13 @@
+
+@use 'var' as *;
+@use 'mix' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+html {
+   
+    @include selection;
+}
+
+
+// @media only screen and (max-width: 500px) {}

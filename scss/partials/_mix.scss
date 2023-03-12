@@ -1,0 +1,217 @@
+@use 'var' as *;
+
+// --- function ---
+// --- funkce 'em' na line height prepocet na em
+@function em($height, $size) {
+    @return calc(($height / $size) *1em);
+}
+
+// ---------------------
+// Mixins
+// ---------------------
+
+// vlastnost vyberu
+@mixin selection {
+    ::selection {
+        background-color: #1683ff;
+        color: #ffffff;
+    }
+}
+
+// zadny vyber
+@mixin noSelection {
+
+    user-select: none;
+}
+
+// $value= border-box, content-box, inherit
+@mixin box-sizing ($value) {
+    box-sizing: $value;
+    -webkit-box-sizing: $value;
+}
+
+
+// basic Flex layout
+@mixin flex($justify: space-between, $align: flex-start, $gap: 0rem, $direction: row, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+// zarovnani na stred
+@mixin flexCenter($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin container($width: 90rem) {
+    max-width: $width;
+    margin-inline: auto;
+    padding: 0 0rem;
+}
+
+@mixin radialGradient($background: $backroundGradient) {
+    background: -webkit-radial-gradient($background);
+    background: -moz-radial-gradient($background);
+    background: -o-radial-gradient($background);
+    background: radial-gradient($background);
+}
+
+@mixin beathingBackround ($firstColor, $secondColor) {
+
+    //barva gradientu
+    background: linear-gradient(-45deg,
+            $firstColor 0%,
+            $secondColor 100%);
+    background-size: 300%;
+    animation: gradient 4s ease infinite;
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
+// --- visually-hidden ---
+@mixin hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+
+// --- placeholders ---
+%autoMargin {
+    margin-inline: auto;
+}
+
+%autoWidth {
+    max-width: 70%;
+    @extend %autoMargin;
+}
+
+%borderRadius50 {
+    border-radius: 50%;
+}
+
+%borderRadius30 {
+    border-radius: 1.875rem;
+}
+
+%weight-300 {
+    font-weight: 300;
+}
+
+%weight-400 {
+    font-weight: 400;
+}
+
+%weight-500 {
+    font-weight: 500;
+}
+
+%weight-700 {
+    font-weight: 700;
+}
+
+%weight-800 {
+    font-weight: 800;
+}
+
+%clr10 {
+    color: $clr10;
+}
+
+%backClr10 {
+    background-color: $clr10;
+}
+
+%clr11 {
+    color: $clr11;
+}
+
+%backClr11 {
+    background-color: $clr11;
+}
+
+%clr12 {
+    color: $clr12;
+}
+
+%backClr12 {
+    background-color: $clr12;
+}
+
+%clr13 {
+    color: $clr13;
+}
+
+%backClr13 {
+    background-color: $clr13;
+}
+
+%inputReset {
+    outline: none;
+    border: none;
+}
+
+%heading {
+    @extend %clr10;
+    @extend %weight-700;
+    font-size: var(--h1-fs);
+    line-height: em(35, 28);
+}
+
+@mixin mQmax {
+    @media only screen and (max-width:$mQmax) {
+        :root {}
+
+        @content;
+    }
+}
+
+@mixin mQmid {
+    @media only screen and (max-width:$mQmid) {
+
+        :root {}
+
+        @content;
+    }
+}
+
+@mixin mQmin {
+    @media only screen and (max-width:$mQmin) {
+        :root {}
+
+        @content;
+    }
+}
+
+@mixin mQdefault($width) {
+    @media only screen and (max-width:$width) {
+
+        :root {}
+
+        @content;
+    }
+}
+
+
+

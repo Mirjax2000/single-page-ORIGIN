@@ -1,0 +1,30 @@
+{
+        "name": "single-page-ORIGIN",
+       
+        "version": "1.0.0",
+        "description": "automaticky vytvoreno",
+        "main": "gulpfile.js",
+        "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "keywords": [
+                "automaticky",
+                "vytvoreno"
+        ],
+        "browserslist": [
+                "defaults and supports es6-module",
+                "maintained node versions",
+                "last 2 version"
+        ],
+        "author": "Miroslav Viktorin",
+        "license": "ISC",
+        "devDependencies": {
+                "bootstrap": "^5.2.3",
+                "gulp": "^4.0.2",
+                "gulp-autoprefixer": "^8.0.0",
+                "gulp-sass": "^5.1.0",
+                "gulp-sourcemaps": "^3.0.0",
+                "gulp-webp": "^4.0.1",
+                "sass": "^1.58.0"
+        }
+}
