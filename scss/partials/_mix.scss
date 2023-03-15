@@ -30,7 +30,6 @@
     -webkit-box-sizing: $value;
 }
 
-
 // basic Flex layout
 @mixin flex($justify: space-between, $align: flex-start, $gap: 0rem, $direction: row, $wrap: nowrap) {
     display: flex;
@@ -96,8 +95,57 @@
     white-space: nowrap;
 }
 
+// --- typography ---
+
+%bottom-border {
+    display: inline-block;
+    border-bottom: $clr12 2px solid;
+    padding-bottom: .5rem;
+    letter-spacing: .1428rem;
+}
+
+%heading-XL {
+    font-size: var(--XL-fs);
+    @extend %weight-700;
+    line-height: em(88, 88);
+}
+
+%heading-L {
+    font-size: var(--L-fs);
+    @extend %weight-700;
+    line-height: em(56, 48);
+}
+
+%heading-M {
+    font-size: var(--M-fs);
+    @extend %weight-700;
+}
+
+%heading-S {
+    font-size: var(--S-fs);
+    @extend %weight-500;
+}
+
+%paragraph {
+    font-size: var(--par-fs);
+    @extend %weight-500;
+    line-height: em(28, 18);
+}
+
+%interactive-I {
+    font-size: var(--inter-fs);
+    @extend %weight-700;
+}
+
+%interactive-II {
+    font-size: var(--inter-fs);
+    @extend %weight-500;
+}
+
+
 
 // --- placeholders ---
+
 %autoMargin {
     margin-inline: auto;
 }
@@ -212,6 +260,3 @@
         @content;
     }
 }
-
-
-

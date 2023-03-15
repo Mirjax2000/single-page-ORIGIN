@@ -1,13 +1,437 @@
-
 @use 'var' as *;
 @use 'mix' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
-
-html {
-   
-    @include selection;
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('./../fonts/SpaceGrotesk-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: block;
 }
 
 
-// @media only screen and (max-width: 500px) {}
+
+html {
+    @include selection;
+}
+
+body {
+    color: $clr10;
+    background-color: $clr11;
+    overflow-x: hidden;
+}
+
+.top,
+.middle,
+.bottom {
+    overflow: hidden;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-image: url(./../img/pattern-rings.svg);
+        background-repeat: no-repeat;
+        height: 8.0625rem;
+        width: 33.125rem;
+        z-index: -1;
+    }
+}
+
+hr {
+    border: 1px solid $clr10;
+    opacity: .7;
+}
+
+.top {
+    h3 {
+        @extend %heading-M;
+    }
+
+    &::before {
+        left: -22.5rem;
+        top: 7rem;
+    }
+}
+
+.hero {
+    .backgroundImg {
+        width: 10.9375rem;
+        height: 15.125rem;
+        background-image: url(./../img/image-profile-mobile-1.webp);
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: cover;
+    }
+
+    &--heading {
+        @extend %heading-XL;
+        letter-spacing: -0.071rem;
+
+        .span-border {
+            display: inline-block;
+            border-bottom: .25rem solid $clr12;
+            line-height: 1.05;
+            white-space: nowrap;
+        }
+    }
+
+    &--paragraph {
+        @extend %paragraph;
+        color: $clr14;
+    }
+
+    &--interact-I {
+        @extend %interactive-I;
+        @extend %bottom-border;
+        cursor: pointer;
+        transition: color ease-in-out .3s;
+
+        &:hover {
+            color: $clr12;
+        }
+    }
+}
+
+.middle {
+
+    &::before {
+        top: 38rem;
+        right: -21rem;
+    }
+
+    .hrMiddle {
+        margin-top: 2.5rem;
+        margin-bottom: 5rem;
+    }
+
+
+    .experience--list {
+        &--item {
+            margin-bottom: 2rem;
+
+            h2 {
+                @extend %heading-L;
+                letter-spacing: -1px;
+                margin: 0;
+            }
+
+            p {
+                @extend %paragraph;
+            }
+        }
+    }
+
+    .portfolio {
+        h2 {
+            @extend %heading-XL;
+            letter-spacing: -0.071rem;
+        }
+
+        &--interact-I {
+            @extend %interactive-I;
+            letter-spacing: .1428rem;
+            padding-top: .5rem;
+            cursor: pointer;
+            transition: color ease-in-out .3s;
+
+            &:hover {
+                color: $clr12;
+            }
+        }
+
+        &--list {
+            &--item {
+                // outline: 1px solid red;
+                margin-bottom: 2rem;
+
+                .img--holder {
+                    h5 {
+                        display: none;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                h3 {
+                    @extend %heading-M;
+                    margin-bottom: 1rem;
+                }
+
+                h4 {
+                    @extend %heading-S;
+                }
+            }
+        }
+
+        .bottom-border {
+            @extend %bottom-border;
+            @extend %interactive-I;
+        }
+    }
+}
+
+.gray {
+    background-color: $clr13;
+
+    .bottom {
+
+
+        &::before {
+            z-index: 100;
+            top: 28.5rem;
+            left: -22.5rem;
+        }
+
+        h2 {
+            @extend %heading-XL;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            label {
+                text-indent: -9999px;
+            }
+
+            input,
+            textarea {
+                color: $clr10;
+                background-color: transparent;
+                outline: transparent;
+                border: none;
+                resize: none;
+                @extend %interactive-II;
+
+                &::placeholder {
+                    text-indent: 1rem;
+                    color: $clr10;
+                    opacity: .5;
+                    @extend %interactive-II;
+                }
+            }
+
+            .bottom-border {
+                color: $clr10;
+                display: inline-block;
+                padding: 0 0 .5rem 0;
+                background-color: $clr13;
+                letter-spacing: 2.28px;
+                border: none;
+                border-bottom: $clr12 2px solid;
+                @extend %interactive-I;
+                cursor: pointer;
+                transition: color ease-in-out .3s;
+
+                &:hover {
+                    color: $clr12;
+                }
+            }
+
+            .lastHr {
+                margin-top: 5rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        --XL-fs:#{$XL-Mid};
+        --L-fs:#{$L-Mid};
+        --M-fs:#{$M-Mid};
+        --S-fs:#{$S-Mid};
+        --par-fs:#{$par-Mid};
+        --inter-fs:#{$inter-Mid};
+    }
+
+    .top {
+        &::after {
+            top: 25.5rem;
+        }
+    }
+
+    .hero {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: flex-start;
+
+        .backgroundImg {
+            position: absolute;
+            width: 20.125rem;
+            height: 37.5rem;
+            background-image: url(./../img/image-profile-tablet-1.webp);
+            background-repeat: no-repeat;
+            background-position: top -100px center;
+            background-size: 95%;
+            top: 100px;
+            right: -20px;
+            z-index: -1;
+        }
+    }
+
+    .middle {
+        &::before {
+            top: 23rem;
+            right: -23rem;
+        }
+    }
+
+    .gray .bottom {
+
+        &::before {
+            z-index: 100;
+            top: 34rem;
+            left: -23rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    :root {
+        --XL-fs:#{$XL-Max};
+        --L-fs:#{$L-Max};
+        --M-fs:#{$M-Max};
+        --S-fs:#{$S-Max};
+        --par-fs:#{$par-Max};
+        --inter-fs:#{$inter-Max};
+    }
+
+    .top {
+        &::after {
+            display: none;
+        }
+    }
+
+    .hero {
+        min-height: 30rem;
+
+        .backgroundImg {
+            position: absolute;
+            width: 27.75rem;
+            height: 38.625rem;
+            background-image: url(./../img/image-profile-desktop-1.webp);
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: contain;
+            top: 0px;
+            right: 0px;
+            z-index: -1;
+        }
+    }
+
+    .top,
+    .middle,
+    .bottom {
+        overflow: visible;
+    }
+
+    .middle {
+        &::before {
+            top: 10rem;
+            right: -25rem;
+        }
+
+        .portfolio {
+            padding-bottom: 5rem;
+
+            .portfolio--list--item {
+
+                .img--holder {
+                    position: relative;
+                    max-width: 33.75rem;
+                    min-height: 25rem;
+                    margin-bottom: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 4rem;
+
+                    h5 {
+                        display: inline-block;
+                        margin: 0 auto;
+                        transition: color ease-in-out .3s, opacity ease-in-out .3s;
+
+                        cursor: pointer;
+                        opacity: 0;
+
+                        &:hover {
+                            color: $clr12;
+                        }
+                    }
+
+                    &:hover {
+                        h5 {
+                            opacity: 1;
+                        }
+
+                        &::after {
+                            opacity: .25;
+                        }
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background-position: center;
+                        background-size: cover;
+                        transition: opacity ease-in-out .3s;
+                        z-index: -1;
+                    }
+
+                    img {
+                        display: none;
+                    }
+                }
+
+                &:nth-child(1) .img--holder {
+                    &::after {
+                        background-image: url(./../img/thumbnail-project-1-large.webp);
+                    }
+                }
+
+                &:nth-child(2) .img--holder {
+                    &::after {
+                        background-image: url(./../img/thumbnail-project-2-large.webp);
+                    }
+                }
+
+                &:nth-child(3) .img--holder {
+                    &::after {
+                        background-image: url(./../img/thumbnail-project-3-large.webp);
+                    }
+                }
+
+                &:nth-child(4) .img--holder {
+                    &::after {
+                        background-image: url(./../img/thumbnail-project-4-large.webp);
+                    }
+                }
+
+                &:nth-child(5) .img--holder {
+                    &::after {
+                        background-image: url(./../img/thumbnail-project-5-large.webp);
+                    }
+                }
+
+                &:nth-child(6) .img--holder {
+                    &::after {
+                        background-image: url(./../img/thumbnail-project-6-large.webp);
+                    }
+                }
+            }
+        }
+    }
+
+    .gray .bottom {
+
+        &::before {
+            z-index: 100;
+            top: 18rem;
+            left: -23rem;
+        }
+    }
+}

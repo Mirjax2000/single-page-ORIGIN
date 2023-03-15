@@ -1,8 +1,11 @@
 @use 'var' as *;
 
 :root {
-    --h1-fs:#{$h1Max};
-    --par-fs:#{$parMax};
-    --btn-fs:#{$btnMax};
-    --num-fs:#{$numMax};
+    --XL-fs:#{$XL-Min};
+    --L-fs:#{$L-Min};
+    --M-fs:#{$M-Min};
+    --S-fs:#{$S-Min};
+    --par-fs:#{$par-Min};
+    --inter-fs:#{$inter-Min};
+    --bs-body-font-family: 'Space Grotesk';
 }
