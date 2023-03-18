@@ -179,6 +179,21 @@ hr {
 
     .bottom {
 
+        .success {
+            border-bottom: 1px solid $clr12;
+        }
+
+        .fail {
+            border-bottom: 1px solid $clr15;
+        }
+
+        .invalid {
+            color: $clr15;
+            text-align: right;
+            margin: 0;
+            margin-bottom: 1rem;
+            opacity: 0;
+        }
 
         &::before {
             z-index: 100;
@@ -193,6 +208,7 @@ hr {
 
         form {
             label {
+                position: absolute;
                 text-indent: -9999px;
             }
 
@@ -202,8 +218,10 @@ hr {
                 background-color: transparent;
                 outline: transparent;
                 border: none;
+                border-bottom: 1px solid gray;
                 resize: none;
                 @extend %interactive-II;
+                padding-bottom: 1rem;
 
                 &::placeholder {
                     text-indent: 1rem;
@@ -212,6 +230,15 @@ hr {
                     @extend %interactive-II;
                 }
             }
+
+            #name {
+                margin-bottom: 2rem;
+            }
+
+            #textarea {
+                margin-bottom: 1rem;
+            }
+
 
             .bottom-border {
                 color: $clr10;

@@ -213,6 +213,19 @@ hr {
 .gray {
   background-color: #242424;
 }
+.gray .bottom .success {
+  border-bottom: 1px solid #4EE1A0;
+}
+.gray .bottom .fail {
+  border-bottom: 1px solid #FF6F5B;
+}
+.gray .bottom .invalid {
+  color: #FF6F5B;
+  text-align: right;
+  margin: 0;
+  margin-bottom: 1rem;
+  opacity: 0;
+}
 .gray .bottom::before {
   z-index: 100;
   top: 28.5rem;
@@ -222,6 +235,7 @@ hr {
   margin-bottom: 2rem;
 }
 .gray .bottom form label {
+  position: absolute;
   text-indent: -9999px;
 }
 .gray .bottom form input,
@@ -230,7 +244,9 @@ hr {
   background-color: transparent;
   outline: transparent;
   border: none;
+  border-bottom: 1px solid gray;
   resize: none;
+  padding-bottom: 1rem;
 }
 .gray .bottom form input::-webkit-input-placeholder, .gray .bottom form textarea::-webkit-input-placeholder {
   text-indent: 1rem;
@@ -257,6 +273,12 @@ hr {
   text-indent: 1rem;
   color: #ffffff;
   opacity: 0.5;
+}
+.gray .bottom form #name {
+  margin-bottom: 2rem;
+}
+.gray .bottom form #textarea {
+  margin-bottom: 1rem;
 }
 .gray .bottom form .bottom-border {
   color: #ffffff;
